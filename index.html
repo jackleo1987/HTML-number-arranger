@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Number arranger</h2>
+<p>Number arranger</p>
+
+<button id="" type="button" name="button" onclick="displayNumbers()">Display numbers</button>
+<button id="" type="button" name="button" onclick="arrangeNumbers()">Arrange numbers</button>
+
+<p>First number<p id="num1"></p></p>
+<p>Second number<p id="num2"></p></p>
+<p>Third number<p id="num3"></p></p>
+<p>Fourth number<p id="num4"></p></p>
+
+<script type="text/javascript">
+
+    var i=0;
+    var num1 = document.querySelector("#num1");
+    var num2 = document.querySelector("#num2");
+    var num3 = document.querySelector("#num3");
+    var num4 = document.querySelector("#num4");
+    const num = [];
+    const ordinal = ["first", "second", "third", "fourth"];
+
+    do
+    {
+    num[i] = prompt("Please enter the "+ordinal[i]+" number. Please ensure this is greater than zero.");
+    i++;
+    }
+    while (i<4);
+
+function displayNumbers(){
+
+    /*  var num = document.querySelector("#num").value; */
+
+      const num = [];
+      var i = 0;
+
+      do{
+      var number = `
+        <li>
+          <div class="" id="">
+            <span class="">Number `+i+`</span>
+            <span class="">`+num[i]+`</span>
+          </div>
+        </li>
+        `;
+
+    num1.insertAdjacentHTML('beforeend',number);
+
+      i++;
+      }
+      while (i<4);
+    }
+
+function arrangeNumbers(){
+
+      const num = [];
+      var i = 0;
+      var temp = 0;
+
+    do{
+      if (num[i]>num[i+1]){
+          temp=num[i+1];
+          num[i+1]=num[i];
+          num[i]=temp;
+          }
+
+          var newNumber = `
+
+            <ul>
+            <li>
+              <div class="" id="">
+                <span class="">Number`+i+`</span>
+                <span class="">`+num[i]+`</span>
+              </div>
+            </li>
+            </ul>
+
+            <ul>
+            <li>
+              <div class="" id="">
+                <span class="">Number`+i+1+`</span>
+                <span class="">`+num[i+1]+`</span>
+              </div>
+            </li>
+            </ul>
+            `;
+
+            numHolder.insertAdjacentHTML('beforeend',newNumber);
+
+            i++;
+            }
+
+      while (num[0]>num[1] || num[1]>num[2] || num[2]>num[3] || num[3]>num[4]);
+
+      }
+
+</script>
+
+</body>
+</html>
